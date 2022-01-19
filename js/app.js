@@ -15,10 +15,6 @@ for (let i = 0; i < contents.length; i++) {
 }
 
 // Feature 1: Build dynamic navigation bar
-
-// query after content (landing-container class)
-
-// create document fragment to store nav content
 const navFragment = document.createDocumentFragment();
 
 // create list element from contents
@@ -33,12 +29,15 @@ for (let i = 0; i < contents.length; i++) {
 }
 const navBar = document.getElementById('navbar__list');
 navBar.appendChild(navFragment);
-// END Feature 1
 
 // Feature 2: Scrolling to section on click
 navBar.addEventListener('click', navOnClick);
 
-// Change styles and scroll to section
+// Feature 3&4: Check scroll position for active section and back-to-top function
+document.addEventListener('scroll', onScroll);
+
+
+// event listeners
 function navOnClick(event) {
     clicked = true;
     event.preventDefault();
@@ -52,6 +51,13 @@ function navOnClick(event) {
     setTimeout(func => { clicked = false }, 1000);
 }
 
+function onScroll() {
+    detectActiveRegion();
+    checkScrollY();
+}
+
+
+// help functions
 function changeActiveElements(sectionNr) {
     const currentActives = document.querySelectorAll('.your-active-class');
     const newActiveSection = document.querySelector(`#section${sectionNr}`);
@@ -65,15 +71,6 @@ function changeActiveElements(sectionNr) {
     newActiveNav.classList.toggle('your-active-class');
     activeSection = newActiveSection;
     return newActiveSection;
-}
-// END Feature 2
-
-// Feature 3: Detect active section
-document.addEventListener('scroll', onScroll);
-
-function onScroll() {
-    detectActiveRegion();
-    checkScrollY();
 }
 
 function detectActiveRegion() {
@@ -96,7 +93,6 @@ function checkScrollY() {
         document.getElementById('link-to-top').classList.remove('visible');
     }
 }
-// END Feature 3
 
 // scroll to top button
 document.querySelector('#link-to-top').addEventListener('click', scrollToTop);
