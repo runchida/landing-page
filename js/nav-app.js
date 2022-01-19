@@ -16,4 +16,30 @@ for (var i = 0; i < contents.length; i++) {
 
 // add css styles to nav
 //append nav doc fragment to #navbar__list
-document.getElementById('navbar__list').appendChild(navFragment);
+const navBar = document.getElementById('navbar__list');
+navBar.appendChild(navFragment);
+
+
+// Feature 2: Scrolling to section on click
+navBar.addEventListener('click', navOnClick);
+
+// Change styles and scroll to section
+function navOnClick(event) {
+    const sectionName = ((event.target.textContent).toLowerCase()).replace(' ', '');
+    const newActive = changeActiveElements(event, sectionName);
+    newActive.scrollIntoView({block: "start", behavior: "smooth"});
+}
+
+function changeActiveElements(event, sectionName) {
+    const currentActives = document.querySelectorAll('.your-active-class');
+    const newActiveSection = document.querySelector('#' + sectionName);
+
+    for (var i=0; i<currentActives.length; i++) {
+        currentActives[i].classList.toggle('your-active-class');
+    }
+        
+    newActiveSection.classList.toggle('your-active-class');
+    event.target.classList.toggle('your-active-class');
+
+    return newActiveSection;
+}
