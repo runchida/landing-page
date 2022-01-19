@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Manipulating the DOM</title>
     <!-- Load Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet"> -->
     <!-- Load Styles -->
     <link href="css/styles.css" rel="stylesheet">
 </head>
@@ -15,7 +15,7 @@
 <body>
     <!-- HTML Follows BEM naming conventions 
   IDs are only used for sections to connect menu achors to sections -->
-    <header class="page__header">
+    <header class="page__header" id="top-header">
         <nav class="navbar__menu">
             <!-- Navigation starts as empty UL that will be populated with JS -->
             <ul id="navbar__list"></ul>
@@ -97,11 +97,12 @@
                     consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
             </div>
         </section>
+        <a id='link-to-top'>Get back up high!</a>
     </main>
     <footer class="page__footer">
         <p>&copy Udacity</p>
     </footer>
-    <script src="./js/nav-app.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 
 </html>

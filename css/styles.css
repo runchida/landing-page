@@ -72,8 +72,9 @@ section {
 
 .navbar__menu li {
     display: inline-block;
-    color: #333;
+    color: #999;
     padding: 5px;
+
 }
 
 .navbar__menu li.your-active-class {
@@ -97,7 +98,7 @@ section {
 
 /* Header Styles */
 .page__header {
-    background: #fff;
+    background: transparent;
     position: fixed;
     top: 0;
     width: 100%;
@@ -227,4 +228,14 @@ section.your-active-class .landing__container::after {
 		           translate(-1em) 
 		           rotate(-360deg);
 	}
+}
+
+#link-to-top {
+    display: none;
+}
+
+#link-to-top.visible {
+    width: 100%;
+    display:inline-block;
+    text-align: right;
 }
