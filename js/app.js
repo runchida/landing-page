@@ -58,6 +58,7 @@ function onScroll() {
 
 
 // help functions
+// update active nav and section
 function changeActiveElements(sectionNr) {
     const currentActives = document.querySelectorAll('.your-active-class');
     const newActiveSection = document.querySelector(`#section${sectionNr}`);
@@ -73,6 +74,7 @@ function changeActiveElements(sectionNr) {
     return newActiveSection;
 }
 
+// check which region if on screen, delayed for 1 second if nav is clicked
 function detectActiveRegion() {
     if (!clicked) {
         for (let i = 0; i < sectionThresholds.length; i++) {
